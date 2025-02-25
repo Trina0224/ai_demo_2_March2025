@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive One-Page Website</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#section1">Setup Your Environment</a></li>
+      <li><a href="#section2">Large Language Model</a></li>
+      <li><a href="#section3">Image Generation Model</a></li>
+      <li><a href="#section4">Music Generation Model</a></li>
+      <li><a href="#section5">Mix Them Together</a></li>
+      <li><a href="#section6">Summary</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero or Main Header Section (optional) -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to My One-Page Site</h1>
+      <p>Scroll down to explore the 6 main topics.</p>
+      <button onclick="scrollToSection('section1')">Get Started</button>
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <section id="section1" class="section">
+    <div class="section-content">
+        <h2>Setup Your Environment</h2>
+        <p>This is the content for Topic 1. Add relevant text, images, or interactive elements here.</p>
+        <p><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></p>
+        <p><a href="https://grok.com/" target="_blank">Grok</a></p>
+        <p><a href="https://claude.ai/new" target="_blank">Claude</a></p>
+        <p><a href="https://gemini.google.com/app" target="_blank">Gemini</a></p>
+    </div>
+  </section>
+
+  <section id="section2" class="section">
+    <div class="section-content">
+      <h2>Large Language Model</h2>
+      <p>Content for Topic 2. You can add further interactive elements, animations, or images here.</p>
+      <p>All four of the following should have free usage allowances. I highly recommend Grok and ChatGPT.</p>
+      <p><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></p>
+      <p><a href="https://grok.com/" target="_blank">Grok</a></p>
+      <p><a href="https://claude.ai/new" target="_blank">Claude</a></p>
+      <p><a href="https://gemini.google.com/app" target="_blank">Gemini</a></p>
+      <div class="divider"></div>
+  
+      <div class="images-section">
+        <!-- 第一張圖 -->
+        <div class="image-item" onclick="toggleImage(this)">
+          <img src="images/case01_01.jpg" alt="Picture 1" />
+          <div class="overlay-text">
+            <p>Try this:</p>
+            <p>Write a short, friendly message to my granddaughter congratulating her on her new job.</p>
+          </div>
+        </div>
+  
+        <!-- 第二張圖 -->
+        <div class="image-item" onclick="toggleImage(this)">
+          <img src="images/case01_02.jpg" alt="Picture 2" />
+          <div class="overlay-text">
+            <p>Try this:</p>
+            <p>Suggest a simple dinner recipe with chicken and vegetables.</p>
+          </div>
+        </div>
+  
+        <!-- 第三張圖 -->
+        <div class="image-item" onclick="toggleImage(this)">
+          <img src="images/case01_03.jpg" alt="Picture 3" />
+          <div class="overlay-text">
+            <p>Try this:</p>
+            <p>Plan a half-day trip near [City Name], including must-see attractions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section3" class="section">
+    <div class="section-content">
+      <h2>Topic 3</h2>
+      <p>Content for Topic 3. Demonstrate some visual effect on scroll.</p>
+    </div>
+  </section>
+
+  <section id="section4" class="section">
+    <div class="section-content">
+      <h2>Topic 4</h2>
+      <p>Content for Topic 4. Maybe use a parallax background or some fade-in images.</p>
+    </div>
+  </section>
+
+  <section id="section5" class="section">
+    <div class="section-content">
+      <h2>Topic 5</h2>
+      <p>Content for Topic 5. Consider including a slideshow or testimonial carousel here.</p>
+    </div>
+  </section>
+
+  <section id="section6" class="section">
+    <div class="section-content">
+      <h2>Topic 6</h2>
+      <p>Content for Topic 6. This could be a contact form or call-to-action area.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 My Interactive Website. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
