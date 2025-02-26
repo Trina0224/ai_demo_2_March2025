@@ -250,3 +250,145 @@
     display: block;
     width: 100%;  /* or auto, depending on your layout needs */
   }
+
+/* Container for the three Post-it notes side by side */
+.postit-section {
+  display: flex;
+  gap: 2rem; /* space between the notes */
+  justify-content: center; /* center them horizontally */
+  flex-wrap: wrap; /* so they wrap nicely on narrow screens */
+  margin-top: 2rem;
+}
+
+/* Each individual Post-it note */
+.postit-note {
+  position: relative;
+  width: 250px;  /* adjust to your liking */
+  min-height: 300px; /* ensure enough space for text + images */
+  padding: 1rem;
+  background: #fff6a5;  /* fallback color resembling a sticky note */
+  background-image: url('images/post-it_note.jpg'); /* your Post-it image here */
+  background-repeat: no-repeat;
+  background-size: cover;   /* scale the background to fill the container */
+  background-position: center;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  /* If your post-it image already has a shape, you might remove border-radius. */
+}
+
+/* Text styling inside the Post-it note */
+.postit-note h3 {
+  margin-bottom: 0.5rem; 
+  font-size: 1.2rem;
+  text-align: center; /* optional; center the text */
+}
+.postit-note p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  text-align: center; /* optional */
+}
+
+/* Container for the three images under the text */
+.postit-images {
+  display: flex;
+  flex-direction: column; /* stack images vertically, or row if you prefer side by side */
+  gap: 0.5rem;
+  align-items: center;    /* center them horizontally */
+}
+
+/* The images themselves */
+.postit-images img {
+  width: 80px; /* small thumbnail size, adjust as needed */
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Adjust for smaller screens if necessary */
+@media (max-width: 768px) {
+  .postit-note {
+    width: 200px;
+    margin-bottom: 2rem;
+  }
+  .postit-images {
+    flex-direction: row; /* example: horizontally on smaller screen, tweak as desired */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .postit-images img {
+    width: 60px; /* scale down further if needed */
+  }
+}
+
+/* The fullscreen overlay container */
+.image-overlay {
+  position: fixed;      /* covers the entire viewport */
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8); /* semi-transparent black */
+  display: none;        /* hidden by default */
+  align-items: center;  /* center the image */
+  justify-content: center;
+  z-index: 9999;        /* on top of everything */
+  cursor: zoom-out;     /* indicates you can click to close */
+}
+
+/* The large image in the overlay */
+.image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain; 
+  transition: transform 0.3s ease;
+}
+
+/* When overlay is active (JS will add .active) */
+.image-overlay.active {
+  display: flex;
+}
+
+/* Hero container must be positioned relative to place the video behind the content */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* or a min-height if you prefer */
+  overflow: hidden; /* ensures the background doesn't extend beyond hero bounds */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 70px; /* if you have a fixed navbar, offset as needed */
+}
+
+/* The container that holds the video, positioned absolutely to fill the hero */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* put behind hero content */
+}
+
+/* The video itself should cover the entire container (hero) area */
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the video fills up, clipping if necessary */
+}
+
+/* Example styling for the hero-content overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;   /* above the video */
+  background: rgba(0, 0, 0, 0.3); /* optional translucent background */
+  padding: 2rem;
+  border-radius: 10px;            /* optional visual style */
+}
+
+.hero-content h1,
+.hero-content p {
+  color: #fff; /* text color if you want high contrast against video */
+}

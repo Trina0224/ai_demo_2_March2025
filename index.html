@@ -12,7 +12,7 @@
     <ul>
       <li><a href="#section1">Setup Your Environment</a></li>
       <li><a href="#section2">Large Language Model</a></li>
-      <li><a href="#section3">Image Generation Model</a></li>
+      <li><a href="#section3">Visual Generation Model</a></li>
       <li><a href="#section4">Music Generation Model</a></li>
       <li><a href="#section5">Mix Them Together</a></li>
       <li><a href="#section6">Summary</a></li>
@@ -21,8 +21,17 @@
 
   <!-- Hero or Main Header Section (optional) -->
   <header class="hero">
+  
+    <!-- Video Background -->
+    <div class="video-background">
+      <video autoplay loop muted playsinline id="hero-video">
+        <source src="images/AI.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <div class="hero-content">
-      <h1>Welcome to My One-Page Site</h1>
+      <h1>AI Sharing Part II. March.2025</h1>
       <p>Scroll down to explore the 6 main topics.</p>
       <button onclick="scrollToSection('section1')">Get Started</button>
     </div>
@@ -81,15 +90,62 @@
 
   <section id="section3" class="section">
     <div class="section-content">
-      <h2>Topic 3</h2>
+      <h2>Visual Generation Model</h2>
       <p>Content for Topic 3. Demonstrate some visual effect on scroll.</p>
+      <p>Although Midjourney is the best, it doesn’t offer a free trial.</p>
+      <p>Instead, we can use Leonardo, ChatGPT, Grok, or Gemini to generate beautiful pictures.</p>
+      <p><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></p>
+      <p><a href="https://grok.com/" target="_blank">Grok</a></p>
+      <p><a href="https://gemini.google.com/app" target="_blank">Gemini</a></p>
+      <p><a href="https://app.leonardo.ai/image-generation" target="_blank">Leonardo AI</a></p>
+      <p>The tool Hailuo AI, Sora, Dream Machine and ...etc. can transform the image into a video clip.</p>
+      <p><a href="https://hailuoai.video/create" target="_blank">Hailuo AI</a></p>
+      <p><a href="https://sora.com/library" target="_blank">Sora (OpenAI)</a></p>
+      <div class="divider"></div>
+    <!-- Post-it Notes Section -->
+    <div class="postit-section">
+
+      <!-- Post-it 1 -->
+      <div class="postit-note">
+        <!-- Text on top of the Post-it -->
+        <h3>Create a Digital Postcard</h3>
+        <p>Please draw beautiful beach sunset with palm trees, in a postcard style.</p>
+
+        <!-- Images under the text -->
+        <div class="postit-images">
+          <img src="images/88cd256b-9b47-4d13-a084-478fa1b97af3.webp" alt="Pic 1" onclick="openFullImage(this)"/>
+        </div>
+      </div>
+
+      <!-- Post-it 2 -->
+      <div class="postit-note">
+        <h3>Illustration of a Birthday Cake</h3>
+        <p>Please draw a birthday cake with colorful candles. A very realistic photo.</p>
+        <div class="postit-images">
+          <img src="images/DALL·E 2025-02-25 20.28.22 - A highly realistic photo of a delicious birthday cake with colorful candles. The cake is a two-layer vanilla sponge with smooth, creamy white frosting.webp" alt="Pic 4" onclick="openFullImage(this)"/>
+        </div>
+      </div>
+
+      <!-- Post-it 3 -->
+      <div class="postit-note">
+        <h3>Make It Move</h3>
+        <p>Joyous Birthday</p>
+        <div class="postit-images">
+          <img src="images/Joyous Birthday Celebration_simple_compose_01jn0ar6p9e07tqd38vkadtnsy.gif" alt="Pic 7" onclick="openFullImage(this)"/>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Post-it notes -->
     </div>
   </section>
 
   <section id="section4" class="section">
     <div class="section-content">
-      <h2>Topic 4</h2>
+      <h2>Music Generation Model</h2>
       <p>Content for Topic 4. Maybe use a parallax background or some fade-in images.</p>
+      <p>Let's use a Large Language Model and Suno (or other tools) to create some music. </p>
+      <p><a href="https://suno.com/me" target="_blank">Suno</a></p>
     </div>
   </section>
 
@@ -112,7 +168,13 @@
     <p>&copy; 2025 My Interactive Website. All rights reserved.</p>
   </footer>
 
+  <!-- Image Overlay for Full-Size View (Hidden by default) -->
+  <div id="image-overlay" class="image-overlay" onclick="closeImageOverlay()">
+  <img id="overlay-image" src="" alt="Full Image" />
+  </div>
+
   <!-- JavaScript -->
   <script src="script.js"></script>
+
 </body>
 </html>
