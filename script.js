@@ -144,3 +144,11 @@ function scrollToSection(sectionId) {
    * 7.3 On scroll, run the combined logic
    */
   window.addEventListener('scroll', handleGlobalScroll);
+
+  function togglePlayPause(videoElement) {
+    if (videoElement.paused) {
+      videoElement.play();
+    } else {
+      videoElement.pause();
+    }
+  }

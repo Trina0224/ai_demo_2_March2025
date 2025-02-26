@@ -144,8 +144,45 @@
     <div class="section-content">
       <h2>Music Generation Model</h2>
       <p>Content for Topic 4. Maybe use a parallax background or some fade-in images.</p>
-      <p>Let's use a Large Language Model and Suno (or other tools) to create some music. </p>
+      <p>Let's use a Large Language Model and Suno (or other tools) to create some music.</p>
       <p><a href="https://suno.com/me" target="_blank">Suno</a></p>
+    
+      <!-- Two-column layout with left text/video and right video -->
+      <div class="video-row">
+        <!-- Left Column -->
+        <div class="left-col">
+          <!-- Text Box (optional) -->
+          <div class="text-box">
+            <h3>Brief Explanation</h3>
+            <p>This smaller text box could explain the left video or provide context.</p>
+          </div>
+          <!-- Smaller Video Box -->
+          <div class="video-box small-video">
+            <video 
+              src="images/video-left.mp4" 
+              class="clickable-video" 
+              onclick="togglePlayPause(this)"
+              poster="images/placeholder-left.jpg"  <!-- optional poster image -->
+            >
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </div>
+  
+        <!-- Right Column (Larger Video) -->
+        <div class="right-col">
+          <div class="video-box large-video">
+            <video 
+              src="images/video-right.mp4" 
+              class="clickable-video" 
+              onclick="togglePlayPause(this)"
+              poster="images/placeholder-right.jpg"
+            >
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

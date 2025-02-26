@@ -392,3 +392,78 @@
 .hero-content p {
   color: #fff; /* text color if you want high contrast against video */
 }
+
+/* Container that holds both columns side by side */
+.video-row {
+  display: flex;
+  justify-content: space-between; /* ensures a gap in the middle */
+  align-items: flex-start;        /* align both columns at the top */
+  margin-top: 2rem;
+}
+
+/* Left & Right columns */
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space between items in each column */
+}
+
+/* Optional: fix widths for each column */
+.left-col {
+  width: 300px;  /* or 30%, etc. */
+}
+.right-col {
+  width: 500px;  /* or 50%, etc. */
+}
+
+/* Text Box style (optional) */
+.text-box {
+  border: 1px solid #ccc; /* just to visualize the box */
+  padding: 1rem;
+  background-color: #f9f9f9;
+  /* If you want it narrower or centered, feel free to adjust */
+}
+
+/* Common styling for video boxes */
+.video-box {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* optional: min-height to visualize the box even if video not loaded */
+  min-height: 200px; 
+}
+
+/* Smaller vs Larger Video Box */
+.small-video {
+  width: 100%;    /* fill left-col */
+  height: 300px;  /* example fixed height */
+}
+.large-video {
+  width: 100%;    /* fill right-col */
+  height: 400px;  /* bigger example fixed height */
+}
+
+/* The <video> itself fills the box */
+.clickable-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or contain */
+  cursor: pointer;
+}
+
+/* Responsive Example */
+@media (max-width: 768px) {
+  .video-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-col, .right-col {
+    width: 90%;
+  }
+  .small-video, .large-video {
+    height: auto; /* let them scale automatically if you prefer */
+  }
+}
