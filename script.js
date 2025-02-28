@@ -152,3 +152,92 @@ function scrollToSection(sectionId) {
       videoElement.pause();
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.image-carousel');
+    const container = document.querySelector('.carousel-container');
+    
+    // 複製圖片列表，達到無限循環效果
+    carousel.innerHTML += carousel.innerHTML;
+  
+    let offset = 0;
+    const speed = 1; // 每幀移動的像素數，可調整以控制速度
+    let isPaused = false;
+    let animationId;
+  
+    // 取得原始（未複製部分）的寬度
+    const originalWidth = carousel.scrollWidth / 2;
+  
+    // 拖曳相關變數
+    let isDragging = false;
+    let startX = 0;
+    let dragStartOffset = 0;
+  
+    function animate() {
+      if (!isPaused && !isDragging) {
+        offset += speed;
+        if (offset >= originalWidth) {
+          // 為避免跳動，暫時關閉 transition
+          carousel.style.transition = 'none';
+          offset = 0;
+          carousel.style.transform = `translateX(-${offset}px)`;
+          // 強制 reflow 讓瀏覽器立即應用樣式變更
+          void carousel.offsetWidth;
+          // 恢復 transition（如果有需要可保留或移除）
+          carousel.style.transition = 'transform 0.2s ease-out';
+        } else {
+          carousel.style.transform = `translateX(-${offset}px)`;
+        }
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+  
+    // 當滑鼠進入 container 區域時暫停自動滾動
+    container.addEventListener('mouseenter', function() {
+      isPaused = true;
+    });
+  
+    // 當滑鼠離開 container 區域時恢復自動滾動
+    container.addEventListener('mouseleave', function() {
+      // 如果沒有拖曳，也恢復自動滾動
+      if (!isDragging) {
+        isPaused = false;
+      }
+    });
+  
+    // 拖曳開始
+    container.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      isPaused = true; // 拖曳時暫停自動滾動
+      startX = e.clientX;
+      dragStartOffset = offset;
+    });
+  
+    // 拖曳移動
+    container.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      let diff = e.clientX - startX;
+      offset = dragStartOffset - diff;
+      // 調整 offset 保持在 0 ~ originalWidth 之間（無限循環效果）
+      if (offset < 0) {
+        offset = originalWidth + offset;
+      } else if (offset >= originalWidth) {
+        offset = offset - originalWidth;
+      }
+      carousel.style.transform = `translateX(-${offset}px)`;
+    });
+  
+    // 拖曳結束（滑鼠放開或離開 container）
+    container.addEventListener('mouseup', function() {
+      isDragging = false;
+      isPaused = false;
+    });
+    container.addEventListener('mouseleave', function() {
+      isDragging = false;
+      isPaused = false;
+    });
+  
+    animate();
+  });
+    

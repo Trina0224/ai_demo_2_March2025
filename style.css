@@ -467,3 +467,27 @@
     height: auto; /* let them scale automatically if you prefer */
   }
 }
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.2s ease-out;
+}
+
+/* 這裡強制每個圖片項目佔滿 1/3.5 的容器寬度 */
+.image-carousel a {
+  flex: 0 0 calc(100% / 3.5);
+  box-sizing: border-box;
+  padding: 0 10px;  /* 如果需要間隔，可調整 padding 值 */
+}
+
+.image-carousel img {
+  width: 100%;
+  display: block;
+}
