@@ -1,3 +1,15 @@
+/* Define color palette */
+:root {
+  --primary-color: #EA526F; /* Bright Pink */
+  --primary2-color: #d34469; /*darker Pink */
+  --dark-color: #070600; /* Smoky Black */
+  --light-color: #F7F7FF; /* Ghost White */
+  --accent-color: #23B5D3; /* Pacific Cyan */
+  --hover-color: #279AF1; /* Celestial Blue */
+}
+
+
+
 /* RESET / BASIC STYLES */
 * {
     margin: 0;
@@ -9,16 +21,17 @@
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--dark-color); /*#333;*/
     scroll-behavior: smooth; /* For smooth scrolling */
   }
+  
   
   /* NAVBAR */
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(247, 247, 255, 0.9);
     padding: 1rem;
     z-index: 999; /* Ensure it stays on top */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -33,13 +46,16 @@
   }
   .navbar a {
     text-decoration: none;
-    color: #333;
+    color: var(--dark-color);
     font-weight: bold;
     transition: color 0.3s;
   }
   .navbar a:hover {
-    color: #f05a28;
+    color: var(--accent-color); /*#f05a28;*/
   }
+
+
+
   
   /* HERO SECTION */
   .hero {
@@ -58,16 +74,16 @@
     border-radius: 10px;
   }
   .hero h1 {
-    color: #fff;
+    color: var(--light-color);/*#fff;*/
     font-size: 3rem;
   }
   .hero p {
-    color: #fff;
+    color: var(--light-color);
     margin: 1rem 0;
   }
   .hero button {
-    background: #f05a28;
-    color: #fff;
+    background: var(--primary-color); /*#f05a28;*/
+    color: var(--light-color);
     border: none;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -76,7 +92,7 @@
     transition: background 0.3s;
   }
   .hero button:hover {
-    background: #d94c22;
+    background: var(--primary2-color); /*#d94c22;*/
   }
   
   /* SECTION */
@@ -117,8 +133,8 @@
   .footer {
     text-align: center;
     padding: 1rem;
-    background: #222;
-    color: #fff;
+    background: var(--dark-color);
+    color: var(--light-color);
   }
   
   /* RESPONSIVE MEDIA QUERIES */
@@ -562,8 +578,8 @@ iframe {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #f05a28;
-  color: white;
+  background: var(--primary-color);/*#f05a28;*/
+  color: var(--light-color);
   padding: 12px 18px;
   font-size: 16px;
   text-decoration: none;
@@ -583,4 +599,48 @@ iframe {
 /* 滑鼠遠離右下角時，按鈕變半透明 */
 .floating-button.hidden {
   opacity: 0.5;
+}
+
+/* Apply to headings */
+h1, h2, h3, h4 {
+  color: var(--dark-color);
+}
+
+
+#section1 {
+  position: relative;
+  overflow: hidden; /* Prevents any content from overflowing */
+  background-color: var(--light-color); /* Lightens the overall section */
+}
+
+/* Background image positioned at the bottom-right */
+#section1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%; /* Covers 40% of the section's width */
+  height: 100%; /* Covers 70% of the section's height */
+  background: url('images/sec1_bp.jpeg') no-repeat center center;
+  background-size: cover;
+  z-index: 0; /* Keeps it behind the text */
+}
+
+/* Light Overlay to Improve Readability */
+#section1::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%; /*100%*/
+  height: 100%; /*100%*/
+  background: rgba(255, 255, 255, 0.5); /* Adjust the transparency for better readability */
+  z-index: 1; /* Ensure it’s layered above the image but below the text */
+}
+
+/* Ensure text stays on top */
+#section1 .section-content {
+  position: relative;
+  z-index: 2; /* Moves text above both the image and overlay */
+  color: var(--dark-color); /* Ensures text is visible on the lighter background */
 }

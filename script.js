@@ -284,3 +284,46 @@ function scrollToSection(sectionId) {
         });
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarLinks = document.querySelectorAll(".navbar a");
+
+    navbarLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default jump behavior
+
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop;
+                const startPosition = window.scrollY;
+                const distance = targetPosition - startPosition;
+                const duration = 1200; // Adjust this to control scroll speed (1000 = 1s, 1200 = 1.2s)
+
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+
+                    window.scrollTo(0, scrollAmount);
+
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return (c / 2) * t * t + b;
+                    t--;
+                    return (-c / 2) * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animation);
+            }
+        });
+    });
+  });
