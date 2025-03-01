@@ -32,8 +32,8 @@
 
     <div class="hero-content">
       <h1>AI Sharing Part II. March.2025</h1>
-      <p>Scroll down to explore the 6 main topics.</p>
-      <button onclick="scrollToSection('section1')">Get Started</button>
+      <p>A hands-on recipe for using these new tools.</p>
+      <button onclick="scrollToSection('section1')">Begin Our Descent</button>
     </div>
   </header>
 
@@ -176,7 +176,7 @@
               src="images/Golden Path to Home.mp4" 
               class="clickable-video" 
               onclick="togglePlayPause(this)"
-              poster="images/placeholder-right.jpg"
+              poster="images/right_mp3.png"
             >
               Your browser does not support HTML5 video.
             </video>
@@ -215,20 +215,45 @@
 
   <section id="section6" class="section">
     <div class="section-content">
-      <h2>Topic 6</h2>
-      <p>Content for Topic 6. This could be a contact form or call-to-action area.</p>
+        <h2>Summary</h2>
+        <p>Content for Topic 6. This could be a contact form or call-to-action area.</p>
+        <p>As we discussed in the AI presentation 1., AI is merely a tool. God alone is Lord.</p>
+        <p>Creativity is a gift from God. Don't let AI make you forget it. Remember freedom? Of course, learning to effectively use AI as a tool is also a valuable modern skill.</p>
+      
+        <!-- YouTube Videos in Side-by-Side Layout -->
+        <div class="video-container">
+            <div class="video-box">
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/UfNcQrsRqx0" 
+                    title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-box">
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/mt0jarJpM-I" 
+                    title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Church Website Link - Ensure Center Alignment -->
+        <div class="church-link">
+            <p>Visit our church website: 
+                <a href="https://www.sjcac.org/" target="_blank">https://www.sjcac.org/</a>
+            </p>
+        </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 My Interactive Website. All rights reserved.</p>
+    <p>&copy; March 2025 AI Sharing 佳音小組. All rights reserved.</p>
   </footer>
 
   <!-- Image Overlay for Full-Size View (Hidden by default) -->
   <div id="image-overlay" class="image-overlay" onclick="closeImageOverlay()">
   <img id="overlay-image" src="" alt="Full Image" />
   </div>
+
+  <!-- Floating Button for Hero Section -->
+  <a href="#" id="floating-button" class="floating-button">Back to Top</a>
 
   <!-- JavaScript -->
   <script src="script.js"></script>

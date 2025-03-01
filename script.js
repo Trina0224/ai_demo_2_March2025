@@ -240,4 +240,47 @@ function scrollToSection(sectionId) {
   
     animate();
   });
-    
+  
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const floatingButton = document.getElementById("floating-button");
+    const heroSection = document.querySelector(".hero"); // 正確選取 Hero
+
+    function toggleFloatingButton() {
+        if (!heroSection) return;
+
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+
+        // 當滾動超過 Hero 區域時，顯示按鈕
+        if (heroBottom < 0) {
+            floatingButton.classList.add("show");
+        } else {
+            floatingButton.classList.remove("show");
+        }
+    }
+
+    document.addEventListener("scroll", toggleFloatingButton);
+
+    document.addEventListener("mousemove", function (e) {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // 當滑鼠遠離右下角時，讓按鈕變半透明
+        if (mouseX < windowWidth - 100 || mouseY < windowHeight - 100) {
+            floatingButton.classList.add("hidden");
+        } else {
+            floatingButton.classList.remove("hidden");
+        }
+    });
+
+    // 讓按鈕點擊後平滑滾回 Hero
+    floatingButton.addEventListener("click", function (e) {
+        e.preventDefault(); // 防止預設行為
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+  });

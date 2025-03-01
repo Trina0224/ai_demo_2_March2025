@@ -491,3 +491,96 @@
   width: 100%;
   display: block;
 }
+
+.video-container {
+  display: flex;
+  justify-content: center;  /* 影片居中對齊 */
+  gap: 50px;                /* 影片之間的間距 */
+  flex-wrap: wrap;          /* 小螢幕時自動換行 */
+  margin-top: 1rem;
+}
+
+
+.video-container iframe {
+  max-width: 100%;
+  border-radius: 10px;      /* 讓影片邊角有點圓潤 */
+}
+
+/* 讓所有圖片 (img) 的邊角變成圓弧 */
+img {
+  border-radius: 15px; /* 讓邊角變圓弧，15px 可調整 */
+}
+
+/* 讓影片 (video) 的邊角變成圓弧 */
+video {
+  border-radius: 15px; /* 與圖片一致 */
+}
+
+/* 讓 YouTube 影片的 `iframe` 外框也變成圓弧 */
+iframe {
+  border-radius: 15px; /* YouTube 影片的外框圓角 */
+  overflow: hidden; /* 確保圓角不會超出邊界 */
+}
+
+/* 讓 Post-it Note 內的圖片也適用圓角 */
+.postit-images img {
+  border-radius: 15px;
+}
+
+/* 讓 Carousel (滾動圖片) 的圖片也適用圓角 */
+.image-carousel img {
+  border-radius: 15px;
+}
+
+/* 讓 "Try This" 圖片區的圖片也適用圓角 */
+.image-item img {
+  border-radius: 15px;
+}
+
+/* 讓 Section 4 (音樂區) 內的影片也適用圓角 */
+.video-box video {
+  border-radius: 15px;
+}
+
+/* 讓 Section 6 內的 YouTube 影片也適用圓角 */
+.video-box iframe {
+  width: 480px; /* 縮小影片寬度 */
+  height: 270px; /* 縮小影片高度 */
+  border-radius: 15px; /* 讓影片有圓角 */
+}
+
+
+/* 讓所有區塊內的圖片都有一致的圓角 */
+.section-content img,
+.section-content video,
+.section-content iframe {
+  border-radius: 15px;
+}
+
+/* 浮動按鈕 - 預設隱藏 */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f05a28;
+  color: white;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s, background 0.3s;
+  opacity: 0; /* 預設透明（不顯示） */
+  pointer-events: none; /* 防止點擊 */
+}
+
+/* 當滾動超過 Hero 區域後，按鈕顯示 */
+.floating-button.show {
+  opacity: 1;
+  pointer-events: auto; /* 允許點擊 */
+}
+
+/* 滑鼠遠離右下角時，按鈕變半透明 */
+.floating-button.hidden {
+  opacity: 0.5;
+}
